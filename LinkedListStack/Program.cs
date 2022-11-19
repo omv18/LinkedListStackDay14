@@ -18,9 +18,9 @@ namespace LinkedListStack
                         ll.Display();
                         break;
                     case 2:
-                        ll.AddLast(1);
-                        ll.AddLast(2);
-                        ll.AddLast(3);
+                        ll.AddLast(56);
+                        ll.AddLast(30);
+                        ll.AddLast(70);
                         break;
                     case 3:
                         ll.AddFirst(70);
