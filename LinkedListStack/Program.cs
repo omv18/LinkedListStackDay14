@@ -10,7 +10,7 @@ namespace LinkedListStack
             bool flag = true;
             while (flag)
             {
-                Console.Write("Enter the option :  1. Display 2. Add Last 3.Add First 4.Index Add 5.Pop(first) : ");
+                Console.Write("Enter the option :  1. Display 2. Add Last 3.Add First 4.Index Add 5.Pop(first) 6.Pop(last): ");
                 int option = Convert.ToInt16(Console.ReadLine());
                 switch (option)
                 {
@@ -36,8 +36,13 @@ namespace LinkedListStack
                         ll.AddLast(56);
                         ll.AddLast(30);
                         ll.AddLast(70);
-                        //ll.Display();
                         ll.Pop();
+                        break;
+                    case 6:
+                        ll.AddLast(56);
+                        ll.AddLast(30);
+                        ll.AddLast(70);
+                        ll.PopLast();
                         break;
                     default:
                         flag = false;
