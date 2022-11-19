@@ -73,7 +73,16 @@ namespace LinkedListStack.LinkedListFile
             newNode.next = prev.next;
             prev.next = newNode;
         }
-
+        public void Pop()  //DeleteFirst
+        {
+            if(this.head == null)
+            {
+                Console.WriteLine("LL is empty");
+                return;
+            }
+            head = head.next;
+            return;
+        }
         public void Display()
         {
             if(head == null)
