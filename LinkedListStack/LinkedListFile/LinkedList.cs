@@ -9,6 +9,24 @@ namespace LinkedListStack.LinkedListFile
     public class LinkedList
     {
         public Node head;
+
+        public void AddFirst(int data)
+        {
+            Node newNode = new Node(data);
+            if(this.head == null)
+            {
+                head = newNode;
+                return;
+            }
+            else
+            {
+                //newNode.next = head;
+                //head = newNode;
+                Node temp = this.head;
+                head = newNode;
+                head.next = temp;
+            }
+        }
         public void AddLast(int data)
         {
             Node newNode = new Node(data);
