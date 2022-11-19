@@ -102,9 +102,36 @@ namespace LinkedListStack.LinkedListFile
                 previous = temp;
                 temp = temp.next;
             }
-            previous.next = null;
-            
+            previous.next = null; 
             return;
+        }
+        public int Search(int search)
+        {
+            if (head == null)
+            {
+                Console.WriteLine("LL is empty");
+                return -1;
+            }
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                if (temp.data.Equals(search))
+                {
+                    Console.WriteLine("{0} given Node is found at the index", count);
+                    return count;
+                }
+                count++;
+                temp = temp.next;
+            }
+            return -1;
+        }
+        public int MsTestSearch(int search)
+        {
+            AddFirst(70);
+            AddFirst(30);
+            AddFirst(56);
+            return Search(search);
         }
         public void Display()
         {

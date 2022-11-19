@@ -44,6 +44,12 @@ namespace LinkedListStack
                         ll.AddLast(70);
                         ll.PopLast();
                         break;
+                    case 7:
+                        ll.AddLast(56);
+                        ll.AddLast(30);
+                        ll.AddLast(70);
+                        ll.Search(30);
+                        break;
                     default:
                         flag = false;
                         break; 
