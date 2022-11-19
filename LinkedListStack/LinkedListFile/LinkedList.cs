@@ -45,6 +45,34 @@ namespace LinkedListStack.LinkedListFile
                 temp.next = newNode;
             }
         }
+        public void IndexAdd(int position, int data)
+        {
+            Node newNode = new Node(data);
+            if (head == null)
+            {
+                head = newNode;
+                return;
+            }
+            if(position == 0)
+            {
+                newNode.next = head;
+                head = newNode;
+                return;
+                //AddFirst(data);
+                //return;
+            }
+            Node prev = null;
+            Node current = this.head;
+            int count = 0;
+            while(current != null && count < position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            newNode.next = prev.next;
+            prev.next = newNode;
+        }
 
         public void Display()
         {
