@@ -162,6 +162,35 @@ namespace LinkedListStack.LinkedListFile
             }
             return -1;
         }
+        public void SearchAndDelete(int value)
+        {
+            if(head == null)
+            {
+                Console.WriteLine("LL is empty.So we are unable to delete.");
+                return;
+            }
+            if(count == 1)
+            {
+                head = null;
+                count--;
+                return;
+            }
+            Node prev = head;
+            Node temp = head.next;
+            while(temp != null)
+            {
+                if(temp.data == value)
+                {
+                    Console.WriteLine("inside loop");
+                    prev.next = temp.next;
+                    temp = null;
+                    count--;
+                    return;
+                }
+                prev = temp;
+                temp = temp.next;
+            }
+        }
 
         public int MsTestSearch(int searchValue)
         {
@@ -180,6 +209,14 @@ namespace LinkedListStack.LinkedListFile
             if (findIndex.Equals(addIndex - 1)) return true;
             return false;
             
+        }
+        public int MsTestSearchDelete(int value)
+        {
+            AddLast(56);
+            AddLast(30);
+            AddLast(70);
+            SearchAndDelete(value);
+            return Search(value);
         }
         public void Display()
         {

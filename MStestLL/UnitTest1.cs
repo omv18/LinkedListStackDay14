@@ -6,10 +6,10 @@ namespace MStestLL
     {
         LinkedList linkedList = new LinkedList();
         [TestMethod]
-        public void GivenSearchAddIndex_WhenAnalysed_ShouldReturnSerachAddIndex()
+        public void GivenSearchDeleteIndex_WhenAnalysed_ShouldReturnSerachDeleteIndex()
         {
-            bool result = linkedList.MsTestSearchAdd(30, 45);
-            Assert.AreEqual(true, result);
+            int result = linkedList.MsTestSearchDelete(30);
+            Assert.AreEqual(-1, result);
         }
     }
 }
