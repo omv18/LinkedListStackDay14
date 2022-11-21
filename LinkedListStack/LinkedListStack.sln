@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedListStack", "LinkedListStack.csproj", "{1993609B-49B1-4510-B817-32398CA373F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MStestLL", "..\MStestLL\MStestLL.csproj", "{5420B424-0BDE-40B0-A852-FFF350076CF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MStestLL", "..\MStestLL\MStestLL.csproj", "{5420B424-0BDE-40B0-A852-FFF350076CF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

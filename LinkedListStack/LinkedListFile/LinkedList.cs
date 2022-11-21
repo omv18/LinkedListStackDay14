@@ -9,12 +9,13 @@ namespace LinkedListStack.LinkedListFile
     public class LinkedList
     {
         public Node head;
-
+        public int count = 0;
         public void AddFirst(int data)
         {
             Node newNode = new Node(data);
             if(this.head == null)
             {
+                count++;
                 head = newNode;
                 return;
             }
@@ -25,6 +26,7 @@ namespace LinkedListStack.LinkedListFile
                 Node temp = this.head;
                 head = newNode;
                 head.next = temp;
+                count++;
             }
         }
         public void AddLast(int data)
@@ -32,6 +34,7 @@ namespace LinkedListStack.LinkedListFile
             Node newNode = new Node(data);
             if(this.head == null)
             {
+                count++;
                 this.head = newNode;
                 //return;
             }
@@ -42,6 +45,7 @@ namespace LinkedListStack.LinkedListFile
                 {
                     temp = temp.next;
                 }
+                count++;
                 temp.next = newNode;
             }
         }
@@ -50,11 +54,13 @@ namespace LinkedListStack.LinkedListFile
             Node newNode = new Node(data);
             if (head == null)
             {
+                count++;
                 head = newNode;
                 return;
             }
             if(position == 0)
             {
+                count++;
                 newNode.next = head;
                 head = newNode;
                 return;
@@ -63,13 +69,14 @@ namespace LinkedListStack.LinkedListFile
             }
             Node prev = null;
             Node current = this.head;
-            int count = 0;
-            while(current != null && count < position)
+            int currentPostion = 0;
+            while(current != null && currentPostion < position)
             {
                 prev = current;
                 current = current.next;
-                count++;
+                currentPostion++;
             }
+            count++;
             newNode.next = prev.next;
             prev.next = newNode;
         }
@@ -80,20 +87,23 @@ namespace LinkedListStack.LinkedListFile
                 Console.WriteLine("LL is empty");
                 return;
             }
+            count--;
             head = head.next;
             return;
         }
-        public void PopLast() // Delete last
+        public int PopLast() // Delete last
         {
             if(this.head == null)
             {
                 Console.WriteLine("LL is empty.");
-                return;
+                return -1;
             }
             if(head.next == null)
             {
+                count--;
+                int storeHead = head.data;
                 head = null;
-                return;
+                return storeHead;
             }
             Node temp = head;
             Node previous = null;
@@ -102,10 +112,11 @@ namespace LinkedListStack.LinkedListFile
                 previous = temp;
                 temp = temp.next;
             }
-            previous.next = null; 
-            return;
+            previous.next = null;
+            count--;
+            return temp.data;
         }
-        public int Search(int search)
+        public int Search(int searchValue)
         {
             if (head == null)
             {
@@ -113,25 +124,62 @@ namespace LinkedListStack.LinkedListFile
                 return -1;
             }
             Node temp = head;
-            int count = 0;
+            int searchCount = 0;
             while (temp != null)
             {
-                if (temp.data.Equals(search))
+                if (temp.data.Equals(searchValue))
                 {
-                    Console.WriteLine("{0} given Node is found at the index", count);
-                    return count;
+                    Console.WriteLine("{0} given Node is found at the index", searchCount);
+                    return searchCount;
                 }
-                count++;
+                searchCount++;
                 temp = temp.next;
             }
             return -1;
         }
-        public int MsTestSearch(int search)
+
+        public int SearchAfterAdd(int find, int data)
+        {
+            Node newnode = new Node(data);
+            if(head == null)
+            {
+                Console.WriteLine("LL is empty");
+                return -1;
+            }
+            Node temp = head;
+            int index = 0;
+            while(temp != null)
+            {
+                index++;
+                if(temp.data == find)
+                {
+                    newnode.next = temp.next;
+                    temp.next = newnode;
+                    count++;
+                    return index;
+                }
+                temp = temp.next;
+            }
+            return -1;
+        }
+
+        public int MsTestSearch(int searchValue)
         {
             AddFirst(70);
             AddFirst(30);
             AddFirst(56);
-            return Search(search);
+            return Search(searchValue);
+        }
+        public bool MsTestSearchAdd(int find , int add)
+        {
+            AddLast(56);
+            AddLast(30);
+            AddLast(70);
+            int findIndex = Search(find);
+            int addIndex = SearchAfterAdd(find, add);
+            if (findIndex.Equals(addIndex - 1)) return true;
+            return false;
+            
         }
         public void Display()
         {
